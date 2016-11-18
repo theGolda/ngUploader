@@ -1,0 +1,32 @@
+{
+  "name": "nguploader",
+  "version": "1.0.0",
+  "description": "angular file uploader with fancy svg animations",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-typescript": "^3.1.3",
+    "typescript": "^2.0.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theGolda/ngUploader.git"
+  },
+  "keywords": [
+    "angular",
+    "uploader",
+    "thegolda"
+  ],
+  "author": "michal golda & gianni cafano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theGolda/ngUploader/issues"
+  },
+  "homepage": "https://github.com/theGolda/ngUploader#readme"
+}
