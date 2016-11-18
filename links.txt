@@ -1,0 +1,10 @@
+https://angular.io/docs/ts/latest/tutorial/
+http://chariotsolutions.com/blog/post/typescript-angular2-starter-project-walkthrough-putting-together-express-livereload/
+http://www.greggbolinger.com/angular2-gulp-build/
+http://blog.codeleak.pl/2016/03/quickstart-angular2-with-typescript-and.html
+https://github.com/kolorobot/angular2-typescript-gulp
+https://github.com/johnpapa/angular2-tour-of-heroes
+http://blog.scottlogic.com/2015/12/24/creating-an-angular-2-build.html
+https://www.tutorialspoint.com/angularjs/angularjs_upload_file.htm
+http://flowjs.github.io/ng-flow/
+https://github.com/flowjs/ng-flow
