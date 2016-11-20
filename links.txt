@@ -1,10 +1,42 @@
+/***************************************************
+ *
+ * ANGULAR
+ *
+ ***************************************************/	
+//angular docs and tutorials
 https://angular.io/docs/ts/latest/tutorial/
-http://chariotsolutions.com/blog/post/typescript-angular2-starter-project-walkthrough-putting-together-express-livereload/
-http://www.greggbolinger.com/angular2-gulp-build/
+
+
+
+/***************************************************
+ *
+ * PROJECT AND GULP SETUP
+ *
+ **************************************************/
+//4 part tutorial on how to setup angular2 project with gulp
+http://chariotsolutions.com/blog/post/angular2-starter-walkthrough-overview/
+
+//another tutorial on how to setup angular2 with gulp and file structure
 http://blog.codeleak.pl/2016/03/quickstart-angular2-with-typescript-and.html
 https://github.com/kolorobot/angular2-typescript-gulp
-https://github.com/johnpapa/angular2-tour-of-heroes
+
+//more about gulp setup
 http://blog.scottlogic.com/2015/12/24/creating-an-angular-2-build.html
+
+//browserSync-nodemon-expressjs gulp setup
+https://github.com/sogko/gulp-recipes/tree/master/browser-sync-nodemon-expressjs
+
+
+
+/***************************************************
+ *
+ * FILE UPLOADER
+ *
+ **************************************************/
+//tutorial on angularJS ulpad file
 https://www.tutorialspoint.com/angularjs/angularjs_upload_file.htm
+
+//example of angular uploader
 http://flowjs.github.io/ng-flow/
 https://github.com/flowjs/ng-flow
+

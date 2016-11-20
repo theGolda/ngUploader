@@ -3,10 +3,17 @@
   "version": "1.0.0",
   "description": "angular file uploader with fancy svg animations",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "angular2": "^2.0.0-beta.17",
+    "es6-shim": "^0.35.1",
+    "express": "^4.14.0",
+    "systemjs": "^0.19.41"
+  },
   "devDependencies": {
+    "browser-sync": "^2.18.2",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
     "gulp-sourcemaps": "^2.2.0",
     "gulp-typescript": "^3.1.3",
     "typescript": "^2.0.10"
