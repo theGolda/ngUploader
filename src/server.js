@@ -8,7 +8,7 @@ const server = http.createServer(app);
 
 app.get('/', function(req, res) {
 
-  res.sendfile('app/index.html');
+  res.sendfile('index.html');
 
 });
 

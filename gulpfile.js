@@ -12,10 +12,10 @@ gulp.task('nodemon', function (cb) {
   return nodemon({
 
     // nodemon our expressjs server
-    script: './dist/app.js',
+    script: './dist/server.js',
 
     // watch core server file(s) that require server restart on change
-    watch: ['./dist/app.js']
+    watch: ['./dist/server.js']
   })
     .on('start', function onStart() {
       // ensure start only got called once
