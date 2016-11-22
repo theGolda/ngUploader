@@ -1,34 +1,38 @@
-const gulp = require('gulp');
-const ts = require('gulp-typescript');
-const tsProject = ts.createProject('tsconfig.json');
-const browserSync = require('browser-sync');
-const nodemon = require('gulp-nodemon');
-const BROWSERSYNC_DELAY = 600;
+var gulp = require('gulp');
+var ts = require('gulp-typescript');
+var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
+var tsProject = ts.createProject('tsconfig.json');
+var browserSync = require('browser-sync');
+var nodemon = require('gulp-nodemon');
+var BROWSERSYNC_DELAY = 600;
 
 
-//nodemon task
+//nodemon task - necessary for express setup
 gulp.task('nodemon', function (cb) {
-  const called = false;
+  var called = false;
   return nodemon({
 
     // nodemon our expressjs server
-    script: './dist/server.js',
+    script: 'dist/server.js',
 
     // watch core server file(s) that require server restart on change
-    watch: ['./dist/server.js']
+    watch: ['dist/server.js']
   })
-    .on('start', function onStart() {
+    .on('start', function() {
       // ensure start only got called once
-      if (!called) { cb(); }
+      if (!called) { 
+      	cb(); 
+      }
       called = true;
     })
-    .on('restart', function onRestart() {
+    .on('restart', function() {
       // reload connected browsers after a slight delay
       setTimeout(function reload() {
         browserSync.reload({
           stream: false
         });
-      }, BS_DELAY);
+      }, BROWSERSYNC_DELAY);
     });
 });
 
@@ -45,9 +49,45 @@ gulp.task('browser-sync', ['nodemon'], function () {
   });
 });
 
-//browserSync reload
-gulp.task('bs-reload', function () {
-  browserSync.reload();
+//compile sass to css task
+gulp.task('sass', function() {
+	return gulp.src('./src/scss/**/*.scss')
+		.pipe(sourcemaps.init())
+		.pipe(sass())
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest('./dist/css'))
+		.pipe(browserSync.reload({
+			stream: true
+		}));
+});
+
+//compile component's sass
+gulp.task('component.sass', function() {
+	return gulp.src('./src/app/**/*.scss')
+		.pipe(sourcemaps.init())
+		.pipe(sass())
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest('./dist/app'))
+		.pipe(browserSync.reload({
+			stream: true
+		}));
+});
+
+//sass watcher
+gulp.task('watch.sass', ['sass'], function() {
+	gulp.watch('./src/scss/**/*.scss', ['sass'])
+});
+
+//component sass watcher
+gulp.task('watch.component.sass', ['component.sass'], function() {
+	gulp.watch('./src/app/**/*.scss', ['component.sass'])
+});
+
+//files watcher and browser reload
+gulp.task('watch.dist', function() {
+	gulp.watch([
+		'./dist/**'
+	], browserSync.reload);
 });
 
 //load dependencies and libraries
@@ -68,7 +108,6 @@ gulp.task('assets', function() {
 	gulp.src([
 		'./src/**/*.json',
 		'./src/**/*.html',
-		'./src/**/*.css',
 		'./src/**/*.js'
 	]).pipe(gulp.dest('./dist'));
 });
@@ -78,13 +117,13 @@ gulp.task('watch.assets', ['assets'], function() {
 	return gulp.watch([
 		'./src/**/*.json',
 		'./src/**/*.html',
-		'./src/**/*.css'],
+		'./src/**/*.js'],
 		['assets']);
 });
 
 //compile typescript
 gulp.task('ts', function(done) {
-	const tsResult = gulp.src([
+	var tsResult = gulp.src([
 		"node_modules/angular2/bundles/typings/angular2/angular2.d.ts",
 		"node_modules/angular2/bundles/typings/angular2/http.d.ts",
 		"node_modules/angular2/bundles/typings/angular2/router.d.ts",
@@ -102,12 +141,7 @@ gulp.task('watch.ts', ['ts'], function(){
 		['ts']);
 });
 
-//watch changes in distribution folder to reload page
-gulp.task('watch.dist', function(){
-	gulp.watch('dist/**');
-});
-
 //bundle watchers and invoke with single command
-gulp.task('watch', ['watch.assets', 'watch.ts', 'watch.dist']);
+gulp.task('watch', ['watch.assets', 'watch.ts', 'watch.dist', 'watch.sass', 'watch.component.sass']);
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['browser-sync', 'watch']);

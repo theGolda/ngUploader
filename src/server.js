@@ -1,20 +1,11 @@
 'use strict';
 
 const express = require('express');
-const http = require('http');
-const path = require('path');
-const app = express();
-const server = http.createServer(app);
+const server = express();
+const port = 3000;
 
-app.get('/', function(req, res) {
+server.use(express.static(__dirname));
+server.use(express.static(__dirname + '/css'));
+server.listen(port);
 
-  res.sendfile('index.html');
-
-});
-
-app.use(express.static('app'));
-
-server.listen(3000, 'localhost');
-server.on('listening', function() {
-  console.log('Express server started on port %s at %s', server.address().port, server.address().address);
-});
+console.log('Server listening at localhost change: ' + port + '/');
