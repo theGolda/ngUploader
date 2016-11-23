@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link href="style.css" rel="stylesheet" />
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<link href="css/style.css" rel="stylesheet" />
+	<script src="lib/es6-shim/es6-shim.js"></script>
+	<script src="lib/systemjs/dist/system.src.js"></script>
+    <script src="/systemjs.config.js"></script>
+	<script>
+		System.import('app')
+			.catch(function(err){ 
+				console.error(err); 
+			});
+	</script>
 </head>
 <body>
 	<h1>Test23</h1>
+	<my-app>Loading...</my-app>
 </body>
 </html>

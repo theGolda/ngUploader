@@ -4,10 +4,18 @@
   "description": "angular file uploader with fancy svg animations",
   "main": "index.js",
   "dependencies": {
-    "angular2": "^2.0.0-beta.17",
+    "@angular/common": "^2.2.2",
+    "@angular/compiler": "^2.2.2",
+    "@angular/core": "^2.2.2",
+    "@angular/http": "^2.2.2",
+    "@angular/platform-browser": "^2.2.2",
+    "@angular/platform-browser-dynamic": "^2.2.2",
     "es6-shim": "^0.35.1",
     "express": "^4.14.0",
-    "systemjs": "^0.19.41"
+    "reflect-metadata": "^0.1.8",
+    "rxjs": "^5.0.0-rc.4",
+    "systemjs": "^0.19.41",
+    "zone.js": "^0.7.1"
   },
   "devDependencies": {
     "browser-sync": "^2.18.2",
@@ -21,7 +29,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "gulp setup && gulp assets && gulp ts && gulp"
+    "postinstall": "gulp setup && gulp ts && gulp"
   },
   "repository": {
     "type": "git",

@@ -11,13 +11,6 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true
   },
-  "files": [
-    "node_modules/angular2/bundles/typings/angular2/angular2.d.ts",
-    "node_modules/angular2/bundles/typings/angular2/http.d.ts",
-    "node_modules/angular2/bundles/typings/angular2/router.d.ts",
-    "node_modules/@reactivex/rxjs/es6/R.d.ts",
-    "src/hiya.ts"
-  ],
   "filesGlob": [
     "src/**/*.ts"
   ],

@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var del = require('del');
 var ts = require('gulp-typescript');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
@@ -90,18 +91,45 @@ gulp.task('watch.dist', function() {
 	], browserSync.reload);
 });
 
-//load dependencies and libraries
-gulp.task('setup', function(done) {
-	gulp.src([
-		'node_modules/angular2/bundles/js',
-		'node_modules/angular2/bundles/angular2.*.js*',
-		'node_modules/angular2/bundles/http.*.js*',
-		'node_modules/angular2/bundles/router.*.js*',
-		'node_modules/es6-shim/es6-shim.js*',
-		'node_modules/systemjs/dist/*.*',
-		'node_modules/@reactivex/rxjs/dist/global/Rx.js'
-	]).pipe(gulp.dest('dist/lib'));
+//clean task - remove dist folder
+gulp.task('clean', function() {
+	return del([
+		'dist/**/*'
+	]);
 });
+
+// //copy over angular files
+// gulp.task('angular', function() {
+// 	gulp.src([
+// 		'node_modules/@angular/**/*',
+// 	]).pipe(gulp.dest('dist/lib/@angular'));
+// });
+
+// //load dependencies and libraries
+// gulp.task('setup', ['assets'], function() {
+// 	gulp.src([
+// 		'node_modules/es6-shim/es6-shim.js*',
+// 		'node_modules/systemjs/dist/*.*',
+// 		'node_modules/reflect-metadata/Reflect.js',
+//         'node_modules/rxjs/**/*.js',
+//         'node_modules/zone.js/dist/**',
+// 	]).pipe(gulp.dest('dist/lib'));
+// });
+
+gulp.task("setup", function(){
+    return gulp.src([
+            'es6-shim/es6-shim.js',
+            'systemjs/dist/system-polyfills.js',
+            'systemjs/dist/system.src.js',
+            'reflect-metadata/Reflect.js',
+            'rxjs/**/*.js',
+            'zone.js/dist/**',
+            '@angular/**/bundles/**'
+        ], {cwd: "node_modules/**"}) /* Glob required here. */
+        .pipe(gulp.dest("dist/lib"));
+});
+
+
 
 //move static files to distribution folder
 gulp.task('assets', function() {
@@ -124,10 +152,6 @@ gulp.task('watch.assets', ['assets'], function() {
 //compile typescript
 gulp.task('ts', function(done) {
 	var tsResult = gulp.src([
-		"node_modules/angular2/bundles/typings/angular2/angular2.d.ts",
-		"node_modules/angular2/bundles/typings/angular2/http.d.ts",
-		"node_modules/angular2/bundles/typings/angular2/router.d.ts",
-		"node_modules/@reactivex/rxjs/dist/es6/Rx.d.ts",
 		"src/**/*.ts"			
 	])
 	.pipe(ts(tsProject), undefined, ts.reporter.fullReporter());
