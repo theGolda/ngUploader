@@ -1,0 +1,26 @@
+@import './reset';
+@import './colors';
+@import './fonts';
+@import './links';
+@import './buttons';
+@import './inputs';
+
+body {
+	overflow-x: hidden;
+	background: $l-key;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.well {
+	background: $white;
+	border-radius: 4px;
+}
+
+main.well {
+	margin-top: -2rem;
+	position: relative;
+	z-index: 2;
+}

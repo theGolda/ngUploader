@@ -1,0 +1,26 @@
+.btn {
+	font-size: 1.2rem;
+	font-weight: 500;
+	border-radius: 2px;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.btn--default {
+	background: $black;
+	color: $l-key;
+	transition: all 200ms;
+
+	&:hover {
+		background: $complementary;
+		color: $black;
+	}
+}
+
+.btn--sm {
+	padding: .8rem 1.2rem;
+}
+
+.btn--lg {
+	padding: 1.6rem 2.4rem;
+}

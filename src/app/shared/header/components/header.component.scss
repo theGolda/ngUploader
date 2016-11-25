@@ -1,0 +1,36 @@
+@import './../../../../scss/base/colors.scss';
+
+.app-header {
+	background: $key;
+	color: $white;
+	padding: 3rem 0;
+}
+
+.logo {
+	font-size: 2.4rem;
+}
+
+svg {
+	width: 2.4rem;
+	fill: $white;
+	vertical-align: middle;
+	margin-left: .5rem;
+	// transition: transform 300ms cubic-bezier(.26,.07,.52,1.97);
+}
+
+a {
+	&:hover {
+		svg {
+			animation: bounceScale 600ms cubic-bezier(.26,.07,.52,1.97) 1;
+		}
+	}
+}
+
+@keyframes bounceScale {
+	0% {transform: scale(1.0)}
+	25% {transform: scale(1.4)}
+	50% {transform: scale(1.1)}
+	75% {transform: scale(1.3)}
+	100% {transform: scale(1.0)}
+
+}

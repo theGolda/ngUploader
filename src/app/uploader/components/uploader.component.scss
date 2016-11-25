@@ -1,0 +1,60 @@
+@import './../../../scss/base/colors.scss';
+
+.uploader-wrapper {
+	overflow: hidden;
+	padding: 10rem 0;
+	position: relative;
+	background: $d-key;
+	color: $l-key;
+	font-size: 1.6rem;
+
+	&::after {
+		content: '';
+		width: 400%;
+		height: 200%;
+		background-image: url('./../assets/svg/cloud.svg');
+		background-size: 10%;
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: .12;
+	}
+}
+
+.uploader {
+	position: relative;
+	z-index: 1;
+	padding: 3rem;
+	border: .2rem $complementary dashed;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.bold {
+	margin: 0 1rem;
+}
+
+.drag-and-drop {
+	margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+	.uploader-wrapper {
+		&::after {
+			background-size: 5%;
+		}
+	}
+	.drag-and-drop {
+		margin-top: 0;
+		line-height: 4.4rem;
+	}
+}
+
+@media (min-width:1200px) {
+	.uploader-wrapper {
+		&::after {
+			background-size: 2%;
+		}
+	}
+}

@@ -1,0 +1,9 @@
+.link {
+	text-decoration: none;
+	color: inherit;
+	transition: all 200ms;
+	&:hover {
+		text-decoration: underline;
+		opacity: 0.8;
+	}
+}

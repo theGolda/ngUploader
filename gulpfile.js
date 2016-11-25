@@ -98,24 +98,6 @@ gulp.task('clean', function() {
 	]);
 });
 
-// //copy over angular files
-// gulp.task('angular', function() {
-// 	gulp.src([
-// 		'node_modules/@angular/**/*',
-// 	]).pipe(gulp.dest('dist/lib/@angular'));
-// });
-
-// //load dependencies and libraries
-// gulp.task('setup', ['assets'], function() {
-// 	gulp.src([
-// 		'node_modules/es6-shim/es6-shim.js*',
-// 		'node_modules/systemjs/dist/*.*',
-// 		'node_modules/reflect-metadata/Reflect.js',
-//         'node_modules/rxjs/**/*.js',
-//         'node_modules/zone.js/dist/**',
-// 	]).pipe(gulp.dest('dist/lib'));
-// });
-
 gulp.task("setup", function(){
     return gulp.src([
             'es6-shim/es6-shim.js',
@@ -136,7 +118,8 @@ gulp.task('assets', function() {
 	gulp.src([
 		'./src/**/*.json',
 		'./src/**/*.html',
-		'./src/**/*.js'
+		'./src/**/*.js',
+		'./src/**/*.svg'
 	]).pipe(gulp.dest('./dist'));
 });
 
