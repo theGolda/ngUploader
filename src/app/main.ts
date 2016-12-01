@@ -12,6 +12,8 @@ import { ManagerFileListComponent } from './manager/file-list/components/file-li
 import { ManagerFiltersComponent } from './manager/filters/components/filters.component';
 import { FileManagerComponent } from './manager/manager';
 
+import { FiltersService } from './manager/filters/services/filters.service';
+
 @NgModule({
 	declarations: [ 
 		AppComponent,
@@ -22,7 +24,8 @@ import { FileManagerComponent } from './manager/manager';
 		FileManagerComponent
 	],
 	imports: [ BrowserModule ],
-	bootstrap: [ AppComponent ]
+	bootstrap: [ AppComponent ],
+	providers: [ FiltersService]
 })
 class AppModule {}
 

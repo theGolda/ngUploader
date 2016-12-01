@@ -55,6 +55,10 @@ gulp.task('sass', function() {
 	return gulp.src('./src/scss/**/*.scss')
 		.pipe(sourcemaps.init())
 		.pipe(sass())
+		.on('error', function (err) {
+			console.log(err.toString());
+			this.emit('end');
+		})
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('./dist/css'))
 		.pipe(browserSync.reload({

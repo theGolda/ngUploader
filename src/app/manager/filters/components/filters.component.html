@@ -1,1 +1,18 @@
-<div>Filters here</div>
+<div class="row">
+	<div class="col-xs-12">
+		<h3 class="uppercase">file <span class="bold">manager</span></h3>			
+	</div>
+	
+	<div *ngFor="let fileType of fileTypes" class="col-xs-4 col-lg-2 relative">
+		<input type="checkbox" class="icon-toggler icon-toggler--{{fileType.name}}" />
+		<div class="file-filter file-filter--{{fileType.name}}">
+			<svg viewBox="0 0 438.5 438.5">
+				<title>Filter by file type - {{fileType.name}}</title>
+				<desc>Click to show {{fileType.name}} files</desc>
+				<use attr.xlink:href="#{{fileType.name}}-icon" />
+			</svg>
+			{{fileType.name}}				
+		</div>
+	</div>
+
+</div>

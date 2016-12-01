@@ -14,6 +14,10 @@ body {
 	box-sizing: border-box;
 }
 
+.relative {
+	position: relative;
+}
+
 .well {
 	background: $white;
 	border-radius: 4px;
@@ -23,4 +27,16 @@ main.well {
 	margin-top: -2rem;
 	position: relative;
 	z-index: 2;
+	padding: 1rem;
+}
+
+@media (min-width: 480px) {
+	main.well {
+		padding: 2rem;
+	}
+}
+
+//SVG ANIMATION
+#notes {
+	opacity: 0;
 }

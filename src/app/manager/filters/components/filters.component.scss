@@ -1,0 +1,66 @@
+@import './../../../../scss/base/colors.scss';
+
+.file-filter{
+	background: $l-grey;
+	text-align: center;
+	padding: 1rem;
+	transition: background 250ms cubic-bezier(.3,.18,0,1.11);
+	margin-top: 1rem;
+
+	svg {
+		width: 85%;
+		padding: 10%;
+		fill: $d-key;
+		stroke: $d-key;
+	}
+
+	p {
+		margin-top: 1rem;
+	}
+}
+
+input[type="checkbox"] {
+	position: absolute;
+	top: .5rem;
+	left: 0;
+	width: calc(100% - 1rem);
+	height: 100%;
+	margin:0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.icon-toggler:checked {
+	+ .file-filter--audio{
+		background: $audio;
+	}
+
+	+ .file-filter--image{
+		background: $image;
+	}
+	+ .file-filter--archive{
+		background: $archive;
+	}
+
+	+ .file-filter--video{
+		background: $video;
+	}
+
+	+ .file-filter--text{
+		background: $text;
+	}
+
+	+ .file-filter--other{
+		background: $other;
+	}
+
+	+ [class^="file-filter"] svg{
+		animation: blink 450ms;
+	}
+}
+
+@keyframes blink {
+	0% {fill: $d-key; stroke: $d-key}
+	50% {fill: lighten($d-key, 20%); stroke: lighten($d-key, 20%)}
+	100% {fill: $d-key; stroke: $d-key}
+}
